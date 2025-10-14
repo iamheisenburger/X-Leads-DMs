@@ -2,6 +2,10 @@ import { action } from "./_generated/server";
 import { v } from "convex/values";
 import { api } from "./_generated/api";
 
+// 10 keywords for variety
+const CREATOR_KEYWORDS = ["building in public", "indie hacker", "solopreneur", "maker", "bootstrapped", "shipped", "launched", "founder", "startup founder", "side project"];
+const USER_KEYWORDS = ["subscription", "Netflix", "Spotify", "Disney+", "monthly payment", "cancel subscription", "forgot to cancel", "recurring charge", "auto renew", "subscription cost"];
+
 export const findCreators = action({
   args: { count: v.number() },
   handler: async (ctx, args) => {
@@ -10,18 +14,29 @@ export const findCreators = action({
     console.log(`🔍 Finding ${args.count} creators...`);
 
     const { searchUserByKeyword } = await import("../lib/twitter-client");
+    const { generatePersonalizedDM } = await import("../lib/claude-client");
     const apiKey = process.env.TWITTER_API_KEY || "";
 
-    const creators = await searchUserByKeyword("indie hacker", args.count * 3, apiKey);
-    console.log(`Found ${creators.length} potential creators`);
+    // Use 5 keywords to balance variety and API costs
+    const allCreators = [];
+    for (const query of CREATOR_KEYWORDS.slice(0, 5)) {
+      const results = await searchUserByKeyword(query, Math.ceil(args.count * 1.5), apiKey);
+      allCreators.push(...results);
+    }
+
+    // Remove duplicates
+    const uniqueCreators = Array.from(
+      new Map(allCreators.map(c => [c.id, c])).values()
+    );
+
+    console.log(`Found ${uniqueCreators.length} potential creators`);
 
     const results = [];
 
-    for (const creator of creators) {
-      // Debug logging
-      console.log(`Checking @${creator.userName}: bio=${creator.description?.length || 0} chars, followers=${creator.followers || 0}, tweets=${creator.statusesCount || 0}`);
+    for (const creator of uniqueCreators) {
+      console.log(`Checking @${creator.userName}: bio=${creator.description?.length || 0} chars, followers=${creator.followers || 0}`);
 
-      // Relaxed filters
+      // Minimal filters only
       if (!creator.description || creator.description.trim().length < 10) {
         console.log(`  ✗ No bio`);
         continue;
@@ -30,7 +45,6 @@ export const findCreators = action({
         console.log(`  ✗ Too few followers`);
         continue;
       }
-      // Removed statusesCount check - not reliable from user search API
 
       console.log(`  ✓ ACCEPTED @${creator.userName} (${creator.followers} followers)`);
 
@@ -50,16 +64,20 @@ export const findCreators = action({
         discoveryBucket: "creator",
       });
 
-      const dmText = `Hey! I'm also building in public and post content you might relate to. Want to support each other with RTs when we ship?`;
+      // Generate personalized DM with Claude Haiku
+      const dmText = await generatePersonalizedDM(
+        { name: creator.name, handle: creator.userName, bio: creator.description, followers: creator.followers },
+        "creator"
+      );
 
       await ctx.runMutation(api.candidates.bulkInsert, {
         candidates: [{
           profileId,
           bucket: "collab",
           score: 8,
-          rationale: "Indie hacker keyword search",
+          rationale: "Building-in-public creator search",
           dmDraft: dmText,
-          icebreaker: "indie hacker",
+          icebreaker: "building in public",
           queuedFor: new Date().toISOString().split('T')[0],
         }],
       });
@@ -67,7 +85,7 @@ export const findCreators = action({
       results.push({ handle: creator.userName, followers: creator.followers });
     }
 
-    console.log(`✅ ${results.length} creators ready (searched for ${args.count}, accepted all qualified)`);
+    console.log(`✅ ${results.length} creators ready`);
     return { success: true, count: results.length };
   },
 });
@@ -80,18 +98,25 @@ export const findUsers = action({
     console.log(`🔍 Finding ${args.count} users...`);
 
     const { searchTweets, extractUniqueUsers } = await import("../lib/twitter-client");
+    const { generatePersonalizedDM } = await import("../lib/claude-client");
     const apiKey = process.env.TWITTER_API_KEY || "";
 
-    const tweets = await searchTweets("subscriptions OR Netflix OR Spotify", args.count * 3, apiKey);
-    const users = extractUniqueUsers(tweets);
+    // Use 5 keywords
+    const allTweets = [];
+    for (const query of USER_KEYWORDS.slice(0, 5)) {
+      const results = await searchTweets(query, Math.ceil(args.count * 1.5), apiKey);
+      allTweets.push(...results);
+    }
+
+    const users = extractUniqueUsers(allTweets);
     console.log(`Found ${users.length} potential users`);
 
     const results = [];
 
     for (const user of users) {
-      // Debug logging
       console.log(`Checking @${user.userName}: followers=${user.followers || 0}, tweets=${user.statusesCount || 0}`);
 
+      // Minimal filters only
       if (!user.followers || user.followers > 100000) {
         console.log(`  ✗ Followers out of range (need 1-100k)`);
         continue;
@@ -101,7 +126,7 @@ export const findUsers = action({
         continue;
       }
 
-      console.log(`  ✓ ACCEPTED @${user.userName} (${user.followers} followers)`);
+      console.log(`  ✓ ACCEPTED @${user.userName} (${user.followers || 0} followers)`);
 
       const profileId = await ctx.runMutation(api.profiles.upsert, {
         twitterId: user.id,
@@ -119,7 +144,11 @@ export const findUsers = action({
         discoveryBucket: "user",
       });
 
-      const dmText = `Hey! Built a free tracker that catches forgotten subs before they renew. Want to check it out?`;
+      // Generate personalized DM with Claude Haiku
+      const dmText = await generatePersonalizedDM(
+        { name: user.name, handle: user.userName, bio: user.description || "", followers: user.followers || 0 },
+        "user"
+      );
 
       await ctx.runMutation(api.candidates.bulkInsert, {
         candidates: [{
@@ -136,8 +165,21 @@ export const findUsers = action({
       results.push({ handle: user.userName, followers: user.followers || 0 });
     }
 
-    console.log(`✅ ${results.length} users ready (searched for ${args.count}, accepted all qualified)`);
+    console.log(`✅ ${results.length} users ready`);
     return { success: true, count: results.length };
+  },
+});
+
+// Mini test function
+export const miniTest = action({
+  args: {},
+  handler: async (ctx): Promise<{ success: boolean; creators: number; users: number; total: number }> => {
+    "use node";
+    console.log(`🧪 MINI TEST: Finding 5 creators + 5 users...`);
+    const creators = await ctx.runAction(api.daily.findCreators, { count: 5 });
+    const users = await ctx.runAction(api.daily.findUsers, { count: 5 });
+    console.log(`✅ MINI TEST COMPLETE - Creators: ${creators.count}/5, Users: ${users.count}/5`);
+    return { success: true, creators: creators.count, users: users.count, total: creators.count + users.count };
   },
 });
 
@@ -163,4 +205,3 @@ export const runDaily = action({
     };
   },
 });
-
