@@ -30,10 +30,24 @@ export const getToday = query({
   args: {},
   handler: async (ctx) => {
     const today = new Date().toISOString().split("T")[0];
-    return await ctx.db
+    const candidates = await ctx.db
       .query("candidates")
       .withIndex("by_queued_for", (q) => q.eq("queuedFor", today))
+      .filter((q) => q.eq(q.field("status"), "queued"))
       .collect();
+
+    // Attach profile data to each candidate
+    const withProfiles = await Promise.all(
+      candidates.map(async (candidate) => {
+        const profile = await ctx.db.get(candidate.profileId);
+        return {
+          ...candidate,
+          profile,
+        };
+      })
+    );
+
+    return withProfiles;
   },
 });
 
