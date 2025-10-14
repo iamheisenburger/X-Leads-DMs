@@ -34,15 +34,15 @@ const USER_KEYWORD_TO_TEMPLATE: Record<string, number> = {
 };
 
 const CREATOR_DM_TEMPLATES = [
-  "Hey! I'm building my SaaS in public and documenting the journey on my profile. If it resonates, would you mind RTing my posts?",
-  "Hey! Indie hacking a SaaS and sharing everything on my profile. If you vibe with the content, down to RT my updates?",
-  "Hey! Building a side project and posting the whole journey. If it clicks with you, would appreciate RTs on my posts!",
+  "Hey! I'm sharing my SaaS journey in public and trying to connect with others building out loud. If my posts ever align with what you like to share, would you be open to RT'ing them sometimes? I'd really appreciate it.",
+  "Hey! I'm an indie hacker building my SaaS in public and sharing the progress here. If you're open to it, I'd love for you to RT my posts sometimes as I keep shipping—trying to grow alongside other builders.",
+  "Hey! I'm working on a small startup project and sharing progress publicly. Would you be okay if I looped you in on some of my posts from time to time? Always trying to learn from and connect with other makers.",
 ];
 
 const USER_DM_TEMPLATES = [
-  "Hey! Built a free tracker that catches forgotten subs before they renew. usesubwise.app - check it out?",
-  "Hey! Made a free tool for tracking Netflix/Spotify/etc renewals. usesubwise.app - takes 30 sec to set up. Worth a look?",
-  "Hey! Built SubWise (free) - tracks all your subs and alerts before renewals. usesubwise.app - interested?",
+  "Hey! I've been working on a free app that helps you stay on top of renewals and avoid those surprise subscription charges. It's called SubWise — https://usesubwise.app/ — if that sounds useful, I'd love for you to try it and tell me what you think.",
+  "Hey! I built a free app called SubWise that keeps track of things like Netflix, Spotify, Disney+, and other renewals in one place. If you'd be open to giving it a quick spin — https://usesubwise.app/ — your feedback would really help me improve it.",
+  "Hey! I'm building SubWise — a free tool that organizes all your subscriptions and reminds you before they renew. If you're open to checking it out, here's the link: https://usesubwise.app/ — I'd love any thoughts or feedback you have.",
 ];
 
 export const findCreators = action({
