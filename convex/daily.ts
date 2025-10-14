@@ -6,6 +6,45 @@ import { api } from "./_generated/api";
 const CREATOR_KEYWORDS = ["building in public", "indie hacker", "solopreneur", "maker", "bootstrapped", "shipped", "launched", "founder", "startup founder", "side project"];
 const USER_KEYWORDS = ["subscription", "Netflix", "Spotify", "Disney+", "monthly payment", "cancel subscription", "forgot to cancel", "recurring charge", "auto renew", "subscription cost"];
 
+// Map keywords to DM template indices
+const CREATOR_KEYWORD_TO_TEMPLATE: Record<string, number> = {
+  "building in public": 0,
+  "shipped": 0,
+  "launched": 0,
+  "indie hacker": 1,
+  "solopreneur": 1,
+  "bootstrapped": 1,
+  "founder": 1,
+  "maker": 2,
+  "side project": 2,
+  "startup founder": 2,
+};
+
+const USER_KEYWORD_TO_TEMPLATE: Record<string, number> = {
+  "cancel subscription": 0,
+  "forgot to cancel": 0,
+  "recurring charge": 0,
+  "auto renew": 0,
+  "Netflix": 1,
+  "Spotify": 1,
+  "Disney+": 1,
+  "subscription": 2,
+  "monthly payment": 2,
+  "subscription cost": 2,
+};
+
+const CREATOR_DM_TEMPLATES = [
+  "Hey! I'm building my SaaS in public and documenting the journey on my profile. If it resonates, would you mind RTing my posts?",
+  "Hey! Indie hacking a SaaS and sharing everything on my profile. If you vibe with the content, down to RT my updates?",
+  "Hey! Building a side project and posting the whole journey. If it clicks with you, would appreciate RTs on my posts!",
+];
+
+const USER_DM_TEMPLATES = [
+  "Hey! Built a free tracker that catches forgotten subs before they renew. usesubwise.app - check it out?",
+  "Hey! Made a free tool for tracking Netflix/Spotify/etc renewals. usesubwise.app - takes 30 sec to set up. Worth a look?",
+  "Hey! Built SubWise (free) - tracks all your subs and alerts before renewals. usesubwise.app - interested?",
+];
+
 export const findCreators = action({
   args: { count: v.number() },
   handler: async (ctx, args) => {
@@ -16,69 +55,71 @@ export const findCreators = action({
     const { searchUserByKeyword } = await import("../lib/twitter-client");
     const apiKey = process.env.TWITTER_API_KEY || "";
 
-    // Use 5 keywords to balance variety and API costs
-    const allCreators = [];
-    for (const query of CREATOR_KEYWORDS.slice(0, 5)) {
-      const results = await searchUserByKeyword(query, Math.ceil(args.count * 1.5), apiKey);
-      allCreators.push(...results);
+    // Search all keywords with limited results per keyword for variety
+    const allCreators: Array<{ data: any; keyword: string }> = [];
+    for (const query of CREATOR_KEYWORDS) {
+      const results = await searchUserByKeyword(query, 3, apiKey);
+      allCreators.push(...results.map(r => ({ data: r, keyword: query })));
     }
 
-    // Remove duplicates
+    // Remove duplicates (keep first occurrence with its keyword)
     const uniqueCreators = Array.from(
-      new Map(allCreators.map(c => [c.id, c])).values()
+      new Map(allCreators.map(c => [c.data.id, c])).values()
     );
 
-    console.log(`Found ${uniqueCreators.length} potential creators`);
+    console.log(`Found ${uniqueCreators.length} potential creators across ${CREATOR_KEYWORDS.length} keywords`);
 
     const results = [];
 
     for (const creator of uniqueCreators) {
-      console.log(`Checking @${creator.userName}: bio=${creator.description?.length || 0} chars, followers=${creator.followers || 0}`);
+      const c = creator.data;
+      console.log(`Checking @${c.userName}: bio=${c.description?.length || 0} chars, followers=${c.followers || 0}`);
 
       // Minimal filters only
-      if (!creator.description || creator.description.trim().length < 10) {
+      if (!c.description || c.description.trim().length < 10) {
         console.log(`  ✗ No bio`);
         continue;
       }
-      if (!creator.followers || creator.followers < 500) {
+      if (!c.followers || c.followers < 500) {
         console.log(`  ✗ Too few followers`);
         continue;
       }
 
-      console.log(`  ✓ ACCEPTED @${creator.userName} (${creator.followers} followers)`);
+      console.log(`  ✓ ACCEPTED @${c.userName} (${c.followers} followers, keyword: ${creator.keyword})`);
 
       const profileId = await ctx.runMutation(api.profiles.upsert, {
-        twitterId: creator.id,
-        handle: creator.userName,
-        name: creator.name,
-        bio: creator.description,
-        followers: creator.followers,
-        following: creator.following || 0,
-        url: creator.url || null,
-        profileImageUrl: creator.profilePicture || undefined,
+        twitterId: c.id,
+        handle: c.userName,
+        name: c.name,
+        bio: c.description,
+        followers: c.followers,
+        following: c.following || 0,
+        url: c.url || null,
+        profileImageUrl: c.profilePicture || undefined,
         lastActiveAt: Date.now(),
         lang: "en",
-        dmOpen: creator.canDm || null,
-        verified: creator.isBlueVerified || false,
+        dmOpen: c.canDm || null,
+        verified: c.isBlueVerified || false,
         discoveryBucket: "creator",
       });
 
-      // Use simple DM template (Claude API calls were causing runtime errors)
-      const dmText = `Hey! I'm also building in public and post content you might relate to. Want to support each other with RTs when we ship?`;
+      // Get DM template based on keyword
+      const templateIndex = CREATOR_KEYWORD_TO_TEMPLATE[creator.keyword] || 0;
+      const dmText = CREATOR_DM_TEMPLATES[templateIndex];
 
       await ctx.runMutation(api.candidates.bulkInsert, {
         candidates: [{
           profileId,
           bucket: "collab",
           score: 8,
-          rationale: "Building-in-public creator search",
+          rationale: `${creator.keyword} search`,
           dmDraft: dmText,
-          icebreaker: "building in public",
+          icebreaker: creator.keyword,
           queuedFor: new Date().toISOString().split('T')[0],
         }],
       });
 
-      results.push({ handle: creator.userName, followers: creator.followers });
+      results.push({ handle: c.userName, followers: c.followers });
     }
 
     console.log(`✅ ${results.length} creators ready`);
@@ -96,19 +137,30 @@ export const findUsers = action({
     const { searchTweets, extractUniqueUsers } = await import("../lib/twitter-client");
     const apiKey = process.env.TWITTER_API_KEY || "";
 
-    // Use 5 keywords
-    const allTweets = [];
-    for (const query of USER_KEYWORDS.slice(0, 5)) {
-      const results = await searchTweets(query, Math.ceil(args.count * 1.5), apiKey);
-      allTweets.push(...results);
+    // Search all keywords with limited results per keyword for variety
+    const allTweetsWithKeywords: Array<{ tweets: any[]; keyword: string }> = [];
+    for (const query of USER_KEYWORDS) {
+      const results = await searchTweets(query, 3, apiKey);
+      allTweetsWithKeywords.push({ tweets: results, keyword: query });
     }
 
-    const users = extractUniqueUsers(allTweets);
-    console.log(`Found ${users.length} potential users`);
+    // Extract users and track which keyword found them
+    const usersWithKeywords: Array<{ user: any; keyword: string }> = [];
+    for (const { tweets, keyword } of allTweetsWithKeywords) {
+      const users = extractUniqueUsers(tweets);
+      usersWithKeywords.push(...users.map(u => ({ user: u, keyword })));
+    }
+
+    // Remove duplicates (keep first occurrence with its keyword)
+    const uniqueUsers = Array.from(
+      new Map(usersWithKeywords.map(u => [u.user.id, u])).values()
+    );
+
+    console.log(`Found ${uniqueUsers.length} potential users across ${USER_KEYWORDS.length} keywords`);
 
     const results = [];
 
-    for (const user of users) {
+    for (const { user, keyword } of uniqueUsers) {
       console.log(`Checking @${user.userName}: followers=${user.followers || 0}, tweets=${user.statusesCount || 0}`);
 
       // Minimal filters only
@@ -121,7 +173,7 @@ export const findUsers = action({
         continue;
       }
 
-      console.log(`  ✓ ACCEPTED @${user.userName} (${user.followers || 0} followers)`);
+      console.log(`  ✓ ACCEPTED @${user.userName} (${user.followers || 0} followers, keyword: ${keyword})`);
 
       const profileId = await ctx.runMutation(api.profiles.upsert, {
         twitterId: user.id,
@@ -139,17 +191,18 @@ export const findUsers = action({
         discoveryBucket: "user",
       });
 
-      // Use simple DM template (Claude API calls were causing runtime errors)
-      const dmText = `Hey! Built a free tracker that catches forgotten subs before they renew. Want to check it out?`;
+      // Get DM template based on keyword
+      const templateIndex = USER_KEYWORD_TO_TEMPLATE[keyword] || 2;
+      const dmText = USER_DM_TEMPLATES[templateIndex];
 
       await ctx.runMutation(api.candidates.bulkInsert, {
         candidates: [{
           profileId,
           bucket: "user",
           score: 5,
-          rationale: "Subscription tweet search",
+          rationale: `${keyword} search`,
           dmDraft: dmText,
-          icebreaker: "subscriptions",
+          icebreaker: keyword,
           queuedFor: new Date().toISOString().split('T')[0],
         }],
       });
