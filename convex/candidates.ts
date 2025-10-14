@@ -129,3 +129,18 @@ export const markSent = mutation({
   },
 });
 
+export const getDMCountForProfile = query({
+  args: {
+    profileId: v.id("profiles"),
+  },
+  handler: async (ctx, args) => {
+    const count = await ctx.db
+      .query("candidates")
+      .withIndex("by_profile", (q) => q.eq("profileId", args.profileId))
+      .filter((q) => q.eq(q.field("status"), "sent"))
+      .collect();
+
+    return count.length;
+  },
+});
+
