@@ -14,7 +14,6 @@ export const findCreators = action({
     console.log(`🔍 Finding ${args.count} creators...`);
 
     const { searchUserByKeyword } = await import("../lib/twitter-client");
-    const { generatePersonalizedDM } = await import("../lib/claude-client");
     const apiKey = process.env.TWITTER_API_KEY || "";
 
     // Use 5 keywords to balance variety and API costs
@@ -64,11 +63,8 @@ export const findCreators = action({
         discoveryBucket: "creator",
       });
 
-      // Generate personalized DM with Claude Haiku
-      const dmText = await generatePersonalizedDM(
-        { name: creator.name, handle: creator.userName, bio: creator.description, followers: creator.followers },
-        "creator"
-      );
+      // Use simple DM template (Claude API calls were causing runtime errors)
+      const dmText = `Hey! I'm also building in public and post content you might relate to. Want to support each other with RTs when we ship?`;
 
       await ctx.runMutation(api.candidates.bulkInsert, {
         candidates: [{
@@ -98,7 +94,6 @@ export const findUsers = action({
     console.log(`🔍 Finding ${args.count} users...`);
 
     const { searchTweets, extractUniqueUsers } = await import("../lib/twitter-client");
-    const { generatePersonalizedDM } = await import("../lib/claude-client");
     const apiKey = process.env.TWITTER_API_KEY || "";
 
     // Use 5 keywords
@@ -144,11 +139,8 @@ export const findUsers = action({
         discoveryBucket: "user",
       });
 
-      // Generate personalized DM with Claude Haiku
-      const dmText = await generatePersonalizedDM(
-        { name: user.name, handle: user.userName, bio: user.description || "", followers: user.followers || 0 },
-        "user"
-      );
+      // Use simple DM template (Claude API calls were causing runtime errors)
+      const dmText = `Hey! Built a free tracker that catches forgotten subs before they renew. Want to check it out?`;
 
       await ctx.runMutation(api.candidates.bulkInsert, {
         candidates: [{
