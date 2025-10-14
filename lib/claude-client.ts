@@ -161,3 +161,29 @@ export async function classifyProfilesBatch(
 
   return results;
 }
+
+/**
+ * Generate personalized DM for a profile (simplified wrapper for daily.ts)
+ */
+export async function generatePersonalizedDM(
+  profile: {
+    name: string;
+    handle: string;
+    bio: string;
+    followers: number;
+  },
+  bucket: "creator" | "user"
+): Promise<string> {
+  const reason = bucket === "creator"
+    ? "Building-in-public creator"
+    : "Potential user with subscription pain points";
+
+  const result = await generateDm(
+    { name: profile.name, handle: profile.handle },
+    bucket === "creator" ? "collab" : "user",
+    reason,
+    profile.bio
+  );
+
+  return result?.dm || `Hey ${profile.name}! 👋`;
+}
