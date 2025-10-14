@@ -105,3 +105,27 @@ export const deleteAllSentForDate = mutation({
   },
 });
 
+export const skip = mutation({
+  args: {
+    candidateId: v.id("candidates"),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.candidateId, {
+      status: "skipped",
+    });
+    return { success: true };
+  },
+});
+
+export const markSent = mutation({
+  args: {
+    candidateId: v.id("candidates"),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.candidateId, {
+      status: "sent",
+    });
+    return { success: true };
+  },
+});
+
