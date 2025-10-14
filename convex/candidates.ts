@@ -120,6 +120,7 @@ export const skip = mutation({
 export const markSent = mutation({
   args: {
     candidateId: v.id("candidates"),
+    notes: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     await ctx.db.patch(args.candidateId, {
