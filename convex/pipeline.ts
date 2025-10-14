@@ -16,9 +16,6 @@ export const runManual = action({
 
     console.log(`✅ Pipeline complete: ${result.total} leads found`);
 
-    return {
-      success: true,
-      ...result,
-    };
+    return result;
   },
 });
