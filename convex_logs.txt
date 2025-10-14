@@ -1,0 +1,2149 @@
+Watching logs for production deployment resolute-mosquito-674...
+13/10/2025, 6:20:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:20:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:20:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:20:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:20:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:20:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 0 unique profiles'
+13/10/2025, 6:20:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 0,
+  profilesUpserted: 0,
+  queriesRun: 4
+}
+13/10/2025, 6:20:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 6:20:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 6:20:38 pm [CONVEX A(score:runScoring)] [WARN] 'WARNING: TWITTER_API_KEY not set!'
+13/10/2025, 6:20:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"build in public" OR launched OR shipped lang:en -is:retweet', 'spotlight OR "founder shoutout" lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 10000
+  },
+  userQueries: [ '"too many subscriptions" OR "forgot to cancel" lang:en -is:retweet', 'YNAB OR "Mint alternative" lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [WARN] 'WARNING: TWITTER_API_KEY not set!'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:21:38 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 0 unique profiles'
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 0,
+  profilesUpserted: 0,
+  queriesRun: 4
+}
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 6:21:38 pm [CONVEX A(score:runScoring)] [WARN] 'WARNING: TWITTER_API_KEY not set!'
+13/10/2025, 6:21:38 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"build in public" OR launched OR shipped lang:en -is:retweet', 'spotlight OR "founder shoutout" lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 10000
+  },
+  userQueries: [ '"too many subscriptions" OR "forgot to cancel" lang:en -is:retweet', 'YNAB OR "Mint alternative" lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [WARN] 'WARNING: TWITTER_API_KEY not set!'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Twitter API error: 401 Unauthorized'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Response:' '{"error":"Unauthorized","message":"Missing API key.Please add x-api-key in header"}'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'No results for query: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:36:12 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 0 unique profiles'
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 0,
+  profilesUpserted: 0,
+  queriesRun: 4
+}
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 6:36:12 pm [CONVEX A(score:runScoring)] [WARN] 'WARNING: TWITTER_API_KEY not set!'
+13/10/2025, 6:36:12 pm [CONVEX A(score:runScoring)] [LOG] 'Filtering candidates by DM history (max 2 DMs per profile)...'
+13/10/2025, 6:36:12 pm [CONVEX A(score:runScoring)] [LOG] 'Filtered: 0 collab, 0 users (already contacted 2+ times)'
+13/10/2025, 6:36:12 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+13/10/2025, 6:41:47 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 6:41:47 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"build in public" OR launched OR shipped lang:en -is:retweet', 'spotlight OR "founder shoutout" lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 10000
+  },
+  userQueries: [ '"too many subscriptions" OR "forgot to cancel" lang:en -is:retweet', 'YNAB OR "Mint alternative" lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 6:41:47 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 6:41:47 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:41:49 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:41:51 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:41:53 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 67 unique profiles'
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Omega_eth07:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile haerinkart_:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile RealCoinGeek:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile MemecoinHolder5:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile raspberae_boo:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile OxLenz:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile kashyap_sh56695:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile orartswatch:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Emmyzeal247:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile CollectsE:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile snappieishere:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Giftedpeewen:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ReachMoreDMA:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile CapturedLtd:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile r4inb0wstars:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile pidnroo:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile World_Cement:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile keah_ke1:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile emjhei1028:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile minista001:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile douglasernst:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Alissazehra:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile SteveHopperTV:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ActiveWCC:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ClayRedfern:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Jaberiented:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ThePDA:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile leosun0005:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile TiERajasthan:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile deb198:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile XauusdS82175:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Looper4Hire:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile StealthEX_io:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ChummyChampion:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile huiledoliv:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Heyyitsshadow:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile SheikKhan333:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile kingslanding_18:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ttylmoonlight:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Kanamaisteri:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile jnconkle:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile inorinneyo:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile tsitpspit:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile MERCYB0T:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile leskofreemoney:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile scriiabushka:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile icomfortjohn:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ZShevich:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile TonysNFTshop:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Earendel_Dragon:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile maliyaanicole:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile wokeup3pm:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile _mvyowa:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile brad_voss_:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile grok:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile UnCaasas:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Numinous_btc:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile JavierNietoX:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile GuidiMassi:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ColterReed:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Larsarz:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile dr3wcky:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile raw_sunday:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile jameslgb:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile pizzaboymac:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ynab:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:41:55 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile jackiekenoyer:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:41:55 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 67,
+  profilesUpserted: 0,
+  queriesRun: 4
+}
+13/10/2025, 6:41:55 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 6:41:55 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 6:41:55 pm [CONVEX A(score:runScoring)] [LOG] 'Filtering candidates by DM history (max 2 DMs per profile)...'
+13/10/2025, 6:41:55 pm [CONVEX A(score:runScoring)] [LOG] 'Filtered: 0 collab, 0 users (already contacted 2+ times)'
+13/10/2025, 6:41:55 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+13/10/2025, 6:42:10 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 6:42:10 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"build in public" OR launched OR shipped lang:en -is:retweet', 'spotlight OR "founder shoutout" lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 10000
+  },
+  userQueries: [ '"too many subscriptions" OR "forgot to cancel" lang:en -is:retweet', 'YNAB OR "Mint alternative" lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 6:42:10 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 6:42:10 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:42:12 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:42:14 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:42:16 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 71 unique profiles'
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ChiefofGM:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Gjallarhornet:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile WildnCrazyDeez:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Rebel11Six:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile dana916:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile mihareality:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile WayneCallanJMB:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile GrandRyuma:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Omega_eth07:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile haerinkart_:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile RealCoinGeek:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile MemecoinHolder5:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile raspberae_boo:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile OxLenz:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile kashyap_sh56695:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile orartswatch:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Emmyzeal247:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile CollectsE:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile rowan_county_wx:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile TrisOsborneMP:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile CapturedLtd:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile r4inb0wstars:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile pidnroo:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile World_Cement:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile keah_ke1:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile emjhei1028:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile minista001:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile douglasernst:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Alissazehra:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile SteveHopperTV:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ActiveWCC:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ClayRedfern:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Jaberiented:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ThePDA:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile leosun0005:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile TiERajasthan:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile deb198:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ChummyChampion:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile huiledoliv:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Heyyitsshadow:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile SheikKhan333:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile kingslanding_18:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ttylmoonlight:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Kanamaisteri:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile jnconkle:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile inorinneyo:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile tsitpspit:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile MERCYB0T:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile leskofreemoney:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile scriiabushka:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile icomfortjohn:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ZShevich:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile TonysNFTshop:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Earendel_Dragon:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile maliyaanicole:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile wokeup3pm:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile _mvyowa:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile brad_voss_:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile grok:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile UnCaasas:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Numinous_btc:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile JavierNietoX:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile GuidiMassi:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ColterReed:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile Larsarz:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile dr3wcky:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile raw_sunday:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile jameslgb:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile pizzaboymac:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile ynab:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX M(profiles:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+
+13/10/2025, 6:42:17 pm [CONVEX A(discover:runDiscovery)] [ERROR] 'Failed to upsert profile jackiekenoyer:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .location
+Value: null
+Validator: v.string()
+
+]
+13/10/2025, 6:42:17 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 71,
+  profilesUpserted: 0,
+  queriesRun: 4
+}
+13/10/2025, 6:42:17 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 6:42:17 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 6:42:17 pm [CONVEX A(score:runScoring)] [LOG] 'Filtering candidates by DM history (max 2 DMs per profile)...'
+13/10/2025, 6:42:17 pm [CONVEX A(score:runScoring)] [LOG] 'Filtered: 0 collab, 0 users (already contacted 2+ times)'
+13/10/2025, 6:42:17 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+13/10/2025, 6:51:49 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 6:51:49 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"build in public" OR launched OR shipped lang:en -is:retweet', 'spotlight OR "founder shoutout" lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 10000
+  },
+  userQueries: [ '"too many subscriptions" OR "forgot to cancel" lang:en -is:retweet', 'YNAB OR "Mint alternative" lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 6:51:49 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 6:51:49 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 6:51:51 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 6:51:53 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 6:51:55 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 6:51:56 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 68 unique profiles'
+13/10/2025, 6:51:58 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 68,
+  profilesUpserted: 68,
+  queriesRun: 4
+}
+13/10/2025, 6:51:58 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 6:51:59 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Found 68 profiles to classify'
+13/10/2025, 6:53:58 pm [CONVEX M(signals:upsert)] ArgumentValidationError: Value does not match validator.
+Path: .isPotentialUser
+Value: null
+Validator: v.boolean()
+
+
+13/10/2025, 6:53:58 pm [CONVEX A(enrich:runEnrichment)] [ERROR] 'Error enriching profile jn78n7bx2bztm1dge195hx9jm57sdfjn:' [Error: ArgumentValidationError: Value does not match validator.
+Path: .isPotentialUser
+Value: null
+Validator: v.boolean()
+
+]
+13/10/2025, 6:56:53 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Enrichment complete:' {
+  profilesClassified: 67,
+  profilesProcessed: 68
+}
+13/10/2025, 6:56:53 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 6:56:53 pm [CONVEX A(score:runScoring)] [LOG] 'Found 67 classified profiles'
+13/10/2025, 6:56:53 pm [CONVEX A(score:runScoring)] [LOG] 'Scored 2 collab candidates, 1 user candidates'
+13/10/2025, 6:56:53 pm [CONVEX A(score:runScoring)] [LOG] 'Filtering candidates by DM history (max 2 DMs per profile)...'
+13/10/2025, 6:56:53 pm [CONVEX A(score:runScoring)] [LOG] 'Filtered: 0 collab, 0 users (already contacted 2+ times)'
+13/10/2025, 6:56:54 pm [CONVEX A(score:runScoring)] [ERROR] 'Error generating DM:' { [Error: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-5-sonnet-20241022"},"request_id":"req_011CU5Gsj99LjUEnQhmCHqpd"}] status: 404, headers: {
+    date: 'Mon, 13 Oct 2025 13:26:54 GMT',
+    'content-type': 'application/json',
+    'transfer-encoding': 'chunked',
+    connection: 'keep-alive',
+    'cf-ray': '98df2bdded0482da-IAD',
+    'x-should-retry': 'false',
+    'request-id': 'req_011CU5Gsj99LjUEnQhmCHqpd',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'anthropic-organization-id': '75337c80-96bf-48ff-bb3e-e7ae0b343906',
+    'x-envoy-upstream-service-time': '48',
+    via: '1.1 google',
+    'cf-cache-status': 'DYNAMIC',
+    'x-robots-tag': 'none',
+    server: 'cloudflare'
+  }, request_id: 'req_011CU5Gsj99LjUEnQhmCHqpd', error: {
+    type: 'error',
+    error: {
+      type: 'not_found_error',
+      message: 'model: claude-3-5-sonnet-20241022'
+    },
+    request_id: 'req_011CU5Gsj99LjUEnQhmCHqpd'
+  } }
+13/10/2025, 6:56:56 pm [CONVEX A(score:runScoring)] [ERROR] 'Error generating DM:' { [Error: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-5-sonnet-20241022"},"request_id":"req_011CU5GsqojyKWkayV8VE1qP"}] status: 404, headers: {
+    date: 'Mon, 13 Oct 2025 13:26:56 GMT',
+    'content-type': 'application/json',
+    'transfer-encoding': 'chunked',
+    connection: 'keep-alive',
+    'cf-ray': '98df2be7bf2c82da-IAD',
+    'x-should-retry': 'false',
+    'request-id': 'req_011CU5GsqojyKWkayV8VE1qP',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'anthropic-organization-id': '75337c80-96bf-48ff-bb3e-e7ae0b343906',
+    'x-envoy-upstream-service-time': '20',
+    via: '1.1 google',
+    'cf-cache-status': 'DYNAMIC',
+    'x-robots-tag': 'none',
+    server: 'cloudflare'
+  }, request_id: 'req_011CU5GsqojyKWkayV8VE1qP', error: {
+    type: 'error',
+    error: {
+      type: 'not_found_error',
+      message: 'model: claude-3-5-sonnet-20241022'
+    },
+    request_id: 'req_011CU5GsqojyKWkayV8VE1qP'
+  } }
+13/10/2025, 6:56:57 pm [CONVEX A(score:runScoring)] [ERROR] 'Error generating DM:' { [Error: 404 {"type":"error","error":{"type":"not_found_error","message":"model: claude-3-5-sonnet-20241022"},"request_id":"req_011CU5GsyoT4adbJMMQV8THa"}] status: 404, headers: {
+    date: 'Mon, 13 Oct 2025 13:26:57 GMT',
+    'content-type': 'application/json',
+    'transfer-encoding': 'chunked',
+    connection: 'keep-alive',
+    'cf-ray': '98df2bf36afb82da-IAD',
+    'x-should-retry': 'false',
+    'request-id': 'req_011CU5GsyoT4adbJMMQV8THa',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'anthropic-organization-id': '75337c80-96bf-48ff-bb3e-e7ae0b343906',
+    'x-envoy-upstream-service-time': '26',
+    via: '1.1 google',
+    'cf-cache-status': 'DYNAMIC',
+    'x-robots-tag': 'none',
+    server: 'cloudflare'
+  }, request_id: 'req_011CU5GsyoT4adbJMMQV8THa', error: {
+    type: 'error',
+    error: {
+      type: 'not_found_error',
+      message: 'model: claude-3-5-sonnet-20241022'
+    },
+    request_id: 'req_011CU5GsyoT4adbJMMQV8THa'
+  } }
+13/10/2025, 6:56:58 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+13/10/2025, 7:13:41 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 7:13:41 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"build in public" OR launched OR shipped lang:en -is:retweet', 'spotlight OR "founder shoutout" lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 100
+  },
+  userQueries: [ '"too many subscriptions" OR "forgot to cancel" lang:en -is:retweet', 'YNAB OR "Mint alternative" lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 7:13:41 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 7:13:41 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "build in public" OR launched OR shipped lang:en -is:retweet'
+13/10/2025, 7:13:43 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: spotlight OR "founder shoutout" lang:en -is:retweet'
+13/10/2025, 7:13:45 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "too many subscriptions" OR "forgot to cancel" lang:en -is:retweet'
+13/10/2025, 7:13:47 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: YNAB OR "Mint alternative" lang:en -is:retweet'
+13/10/2025, 7:13:49 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 71 unique profiles'
+13/10/2025, 7:13:52 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 71,
+  profilesUpserted: 71,
+  queriesRun: 4
+}
+13/10/2025, 7:13:52 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 7:13:52 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Found 71 profiles to classify'
+13/10/2025, 7:17:56 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Enrichment complete:' {
+  profilesClassified: 71,
+  profilesProcessed: 71
+}
+13/10/2025, 7:17:56 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 7:17:57 pm [CONVEX A(score:runScoring)] [LOG] 'Found 71 classified profiles'
+13/10/2025, 7:17:57 pm [CONVEX A(score:runScoring)] [LOG] 'Scored 1 collab candidates, 9 user candidates'
+13/10/2025, 7:17:57 pm [CONVEX A(score:runScoring)] [LOG] 'Filtering candidates by DM history (max 2 DMs per profile)...'
+13/10/2025, 7:17:57 pm [CONVEX A(score:runScoring)] [LOG] 'Filtered: 0 collab, 0 users (already contacted 2+ times)'
+13/10/2025, 7:18:35 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 1,
+  totalCandidates: 10,
+  userCandidates: 9
+}
+13/10/2025, 7:48:27 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Starting daily pipeline...'
+13/10/2025, 7:48:27 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Loaded config:' {
+  brandTerms: [ 'netflix', 'spotify', 'youtube premium', 'chatgpt', 'notion', 'figma' ],
+  collabQueries: [ '"share your work" OR "drop your" OR "show me your" lang:en -is:retweet', '"looking for" creators OR builders OR makers lang:en -is:retweet', '"thread of" indie OR small OR micro lang:en -is:retweet' ],
+  collabWeights: {
+    bioTerms: 1,
+    dmOpen: 0.5,
+    qtSmall: 1,
+    replyRateSmall: 1,
+    rtSmall: 3
+  },
+  costMode: 'STANDARD',
+  dailyTargets: {
+    collab: 10,
+    users: 20
+  },
+  followerBand: {
+    max: 250000,
+    min: 100
+  },
+  userQueries: [ '"cancel my subscription" OR "forgot to cancel" OR "subscription I forgot" lang:en -is:retweet', '"spending too much on" streaming OR apps OR subscriptions lang:en -is:retweet', '"subscription creep" OR "monthly charges" OR "recurring payments" lang:en -is:retweet', 'netflix OR spotify OR "youtube premium" OR hulu budget OR expensive lang:en -is:retweet' ],
+  userWeights: {
+    activity: 2,
+    brand: 3,
+    fit: 1,
+    pain: 3
+  }
+}
+13/10/2025, 7:48:27 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 1: Running discovery...'
+13/10/2025, 7:48:27 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "share your work" OR "drop your" OR "show me your" lang:en -is:retweet'
+13/10/2025, 7:48:28 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "looking for" creators OR builders OR makers lang:en -is:retweet'
+13/10/2025, 7:48:31 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "thread of" indie OR small OR micro lang:en -is:retweet'
+13/10/2025, 7:48:33 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "cancel my subscription" OR "forgot to cancel" OR "subscription I forgot" lang:en -is:retweet'
+13/10/2025, 7:48:35 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "spending too much on" streaming OR apps OR subscriptions lang:en -is:retweet'
+13/10/2025, 7:48:37 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: "subscription creep" OR "monthly charges" OR "recurring payments" lang:en -is:retweet'
+13/10/2025, 7:48:39 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Searching: netflix OR spotify OR "youtube premium" OR hulu budget OR expensive lang:en -is:retweet'
+13/10/2025, 7:48:41 pm [CONVEX A(discover:runDiscovery)] [LOG] 'Discovered 127 unique profiles'
+13/10/2025, 7:48:45 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Discovery complete:' {
+  profilesDiscovered: 127,
+  profilesUpserted: 127,
+  queriesRun: 7
+}
+13/10/2025, 7:48:45 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 2: Running enrichment...'
+13/10/2025, 7:48:45 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Found 100 profiles to classify'
+13/10/2025, 7:54:39 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Enrichment complete:' {
+  profilesClassified: 100,
+  profilesProcessed: 100
+}
+13/10/2025, 7:54:39 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Step 3: Running scoring...'
+13/10/2025, 7:54:39 pm [CONVEX A(score:runScoring)] [LOG] 'Found 100 classified profiles'
+13/10/2025, 7:54:39 pm [CONVEX A(score:runScoring)] [LOG] 'Scored 0 collab candidates, 0 user candidates'
+13/10/2025, 7:54:39 pm [CONVEX A(score:runScoring)] [LOG] 'Filtering candidates by DM history (max 2 DMs per profile)...'
+13/10/2025, 7:54:39 pm [CONVEX A(score:runScoring)] [LOG] 'Filtered: 0 collab, 0 users (already contacted 2+ times)'
+13/10/2025, 7:54:39 pm [CONVEX A(pipeline:runDailyPipeline)] [LOG] 'Scoring complete:' {
+  collabCandidates: 0,
+  totalCandidates: 0,
+  userCandidates: 0
+}
+Retrying request (attempt 3/6)...
+Retrying request (attempt 4/6)...
+Retrying request (attempt 5/6)...
+Retrying request (attempt 6/6)...
+Retrying request (attempt 3/6)...
+Retrying request (attempt 4/6)...

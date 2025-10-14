@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(npx convex deploy:*)",
+      "Bash(git pull:*)",
+      "Bash(git merge:*)",
+      "Bash(npx convex dev:*)",
+      "Read(//c/Users/arshadhakim/OneDrive/Desktop/X-Post-Reply-Optimiser/convex/**)",
+      "Bash(npx convex logs:*)",
+      "Bash(npx convex env list:*)",
+      "Bash(timeout 10 npx convex logs --prod --history 50)",
+      "Bash(timeout 15 npx convex logs --prod --history 100)",
+      "Bash(timeout 15 npx convex logs --prod --history 50)",
+      "Bash(npx convex run:*)",
+      "Bash(npx convex env set:*)",
+      "Bash(npx convex env get:*)",
+      "Bash(timeout 15 npx convex logs --prod --history 150)",
+      "Bash(timeout 15 npx convex logs --prod --history 200)",
+      "Bash(timeout 15 npx convex logs --prod --history 250)",
+      "Bash(timeout 15 npx convex logs --prod --history 300)",
+      "Bash(timeout 15 npx convex logs --prod --history 30)",
+      "Bash(curl -X GET \"https://api.twitterapi.io/twitter/user/info?userName=AdityaShips\" -H \"X-API-Key: 16df1c82039e4f75846c27f6ad75fcc3\")",
+      "Bash(curl -X GET \"https://api.twitterapi.io/twitter/tweet/advanced_search?query=%23buildinpublic&queryType=Latest\" -H \"X-API-Key: 16df1c82039e4f75846c27f6ad75fcc3\")",
+      "Bash(curl -s -X GET \"https://api.twitterapi.io/twitter/user/search?query=indie%20hacker\" -H \"X-API-Key: $TWITTER_API_KEY\")",
+      "Bash(curl -s -X GET \"https://api.twitterapi.io/twitter/user/search?query=indie%20hacker\" -H \"X-API-Key: 16df1c82039e4f75846c27f6ad75fcc3\")",
+      "Bash(npx convex function list:*)",
+      "Bash(timeout 10 npx convex dev --once)",
+      "Bash(timeout 15 npx convex dev --once)",
+      "Bash(git remote remove:*)",
+      "Read(//c/Users/arshadhakim/OneDrive/Desktop/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

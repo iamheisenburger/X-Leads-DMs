@@ -1,0 +1,59 @@
+{
+  "dailyTargets": {
+    "collab": 10,
+    "users": 20
+  },
+  "costMode": "STANDARD",
+  "brandTerms": [
+    "netflix",
+    "spotify",
+    "youtube premium",
+    "amazon prime",
+    "chatgpt",
+    "claude",
+    "notion",
+    "figma",
+    "canva",
+    "midjourney",
+    "adobe",
+    "office 365",
+    "icloud",
+    "dropbox",
+    "xbox game pass",
+    "playstation plus",
+    "nintendo switch online",
+    "disney+",
+    "hulu",
+    "paramount+",
+    "apple tv",
+    "max",
+    "crunchyroll"
+  ],
+  "collabQueries": [
+    "\"build in public\" OR launched OR shipped lang:en -is:retweet",
+    "spotlight OR \"founder shoutout\" OR \"share your project\" lang:en -is:retweet",
+    "\"indie hacker\" OR solopreneur lang:en -is:retweet"
+  ],
+  "userQueries": [
+    "\"too many subscriptions\" OR \"forgot to cancel\" OR \"free trial ended\" lang:en -is:retweet",
+    "YNAB OR \"Mint alternative\" OR \"Notion budget\" lang:en -is:retweet",
+    "(netflix OR spotify OR chatgpt OR notion) lang:en -is:retweet"
+  ],
+  "collabWeights": {
+    "rtSmall": 3,
+    "qtSmall": 1,
+    "bioTerms": 1,
+    "replyRateSmall": 1,
+    "dmOpen": 0.5
+  },
+  "userWeights": {
+    "brand": 3,
+    "pain": 3,
+    "activity": 2,
+    "fit": 1
+  },
+  "followerBand": {
+    "min": 10000,
+    "max": 250000
+  }
+}
