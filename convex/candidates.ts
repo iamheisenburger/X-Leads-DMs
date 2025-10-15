@@ -29,10 +29,9 @@ export const bulkInsert = mutation({
 export const getToday = query({
   args: {},
   handler: async (ctx) => {
-    const today = new Date().toISOString().split("T")[0];
+    // Get all queued candidates regardless of date
     const candidates = await ctx.db
       .query("candidates")
-      .withIndex("by_queued_for", (q) => q.eq("queuedFor", today))
       .filter((q) => q.eq(q.field("status"), "queued"))
       .collect();
 
@@ -156,6 +155,36 @@ export const getDMCountForProfile = query({
       .collect();
 
     return count.length;
+  },
+});
+
+export const clearQueued = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const queued = await ctx.db
+      .query("candidates")
+      .filter((q) => q.eq(q.field("status"), "queued"))
+      .collect();
+
+    for (const candidate of queued) {
+      await ctx.db.delete(candidate._id);
+    }
+
+    return { deleted: queued.length };
+  },
+});
+
+export const hasProfileBeenQueued = query({
+  args: {
+    profileId: v.id("profiles"),
+  },
+  handler: async (ctx, args) => {
+    const existing = await ctx.db
+      .query("candidates")
+      .withIndex("by_profile", (q) => q.eq("profileId", args.profileId))
+      .first();
+
+    return existing !== null;
   },
 });
 

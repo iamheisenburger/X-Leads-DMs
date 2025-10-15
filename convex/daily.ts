@@ -85,8 +85,6 @@ export const findCreators = action({
         continue;
       }
 
-      console.log(`  ✓ ACCEPTED @${c.userName} (${c.followers} followers, keyword: ${creator.keyword})`);
-
       const profileId = await ctx.runMutation(api.profiles.upsert, {
         twitterId: c.id,
         handle: c.userName,
@@ -102,6 +100,15 @@ export const findCreators = action({
         verified: c.isBlueVerified || false,
         discoveryBucket: "creator",
       });
+
+      // Skip if this profile has been queued before
+      const alreadyQueued = await ctx.runQuery(api.candidates.hasProfileBeenQueued, { profileId });
+      if (alreadyQueued) {
+        console.log(`  ✗ Already queued before - skipping @${c.userName}`);
+        continue;
+      }
+
+      console.log(`  ✓ ACCEPTED @${c.userName} (${c.followers} followers, keyword: ${creator.keyword})`);
 
       // Get DM template based on keyword
       const templateIndex = CREATOR_KEYWORD_TO_TEMPLATE[creator.keyword] || 0;
@@ -173,8 +180,6 @@ export const findUsers = action({
         continue;
       }
 
-      console.log(`  ✓ ACCEPTED @${user.userName} (${user.followers || 0} followers, keyword: ${keyword})`);
-
       const profileId = await ctx.runMutation(api.profiles.upsert, {
         twitterId: user.id,
         handle: user.userName,
@@ -190,6 +195,15 @@ export const findUsers = action({
         verified: user.isBlueVerified || false,
         discoveryBucket: "user",
       });
+
+      // Skip if this profile has been queued before
+      const alreadyQueued = await ctx.runQuery(api.candidates.hasProfileBeenQueued, { profileId });
+      if (alreadyQueued) {
+        console.log(`  ✗ Already queued before - skipping @${user.userName}`);
+        continue;
+      }
+
+      console.log(`  ✓ ACCEPTED @${user.userName} (${user.followers || 0} followers, keyword: ${keyword})`);
 
       // Get DM template based on keyword
       const templateIndex = USER_KEYWORD_TO_TEMPLATE[keyword] || 2;
@@ -234,6 +248,11 @@ export const runDaily = action({
     "use node";
 
     console.log(`🚀 Starting daily lead finder...`);
+
+    // Clear old queued candidates before finding new ones
+    console.log(`🗑️  Clearing old queued candidates...`);
+    const cleared = await ctx.runMutation(api.candidates.clearQueued);
+    console.log(`   Deleted ${cleared.deleted} old candidates`);
 
     const creators = await ctx.runAction(api.daily.findCreators, { count: 10 });
     const users = await ctx.runAction(api.daily.findUsers, { count: 20 });
