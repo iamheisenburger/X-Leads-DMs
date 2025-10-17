@@ -251,7 +251,7 @@ export const runDaily = action({
 
     // Clear old queued candidates before finding new ones
     console.log(`🗑️  Clearing old queued candidates...`);
-    const cleared = await ctx.runMutation(api.candidates.clearQueued);
+    const cleared = await ctx.runMutation(api.candidates.clearQueued, {});
     console.log(`   Deleted ${cleared.deleted} old candidates`);
 
     const creators = await ctx.runAction(api.daily.findCreators, { count: 10 });
@@ -266,6 +266,58 @@ export const runDaily = action({
       creators: creators.count,
       users: users.count,
       total: creators.count + users.count,
+    };
+  },
+});
+
+export const runCreatorPipelineOnly = action({
+  args: {},
+  handler: async (ctx): Promise<{ success: boolean; creators: number; users: number; total: number }> => {
+    "use node";
+
+    console.log(`🎯 Starting CREATOR pipeline only...`);
+
+    // Clear only creator queued candidates
+    console.log(`🗑️  Clearing queued creators...`);
+    const cleared = await ctx.runMutation(api.candidates.clearQueued, { bucket: "collab" });
+    console.log(`   Deleted ${cleared.deleted} old creator candidates`);
+
+    const creators = await ctx.runAction(api.daily.findCreators, { count: 10 });
+
+    console.log(`\n✅ CREATOR PIPELINE COMPLETE`);
+    console.log(`- Creators: ${creators.count}/10`);
+
+    return {
+      success: true,
+      creators: creators.count,
+      users: 0,
+      total: creators.count,
+    };
+  },
+});
+
+export const runUserPipelineOnly = action({
+  args: {},
+  handler: async (ctx): Promise<{ success: boolean; creators: number; users: number; total: number }> => {
+    "use node";
+
+    console.log(`💼 Starting USER pipeline only...`);
+
+    // Clear only user queued candidates
+    console.log(`🗑️  Clearing queued users...`);
+    const cleared = await ctx.runMutation(api.candidates.clearQueued, { bucket: "user" });
+    console.log(`   Deleted ${cleared.deleted} old user candidates`);
+
+    const users = await ctx.runAction(api.daily.findUsers, { count: 20 });
+
+    console.log(`\n✅ USER PIPELINE COMPLETE`);
+    console.log(`- Users: ${users.count}/20`);
+
+    return {
+      success: true,
+      creators: 0,
+      users: users.count,
+      total: users.count,
     };
   },
 });

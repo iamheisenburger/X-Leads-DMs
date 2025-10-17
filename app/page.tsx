@@ -9,33 +9,60 @@ import { useState } from "react";
 
 export default function HomePage() {
   const todayData = useQuery(api.candidates.getToday, {});
-  const runPipeline = useAction(api.pipeline.runManual);
-  const [isRunning, setIsRunning] = useState(false);
+  const runCreatorPipeline = useAction(api.pipeline.runManualCreators);
+  const runUserPipeline = useAction(api.pipeline.runManualUsers);
+  const [isRunningCreators, setIsRunningCreators] = useState(false);
+  const [isRunningUsers, setIsRunningUsers] = useState(false);
 
-  const handleRunPipeline = async () => {
-    setIsRunning(true);
+  const handleRunCreatorPipeline = async () => {
+    setIsRunningCreators(true);
     try {
-      const result = await runPipeline({});
-      console.log("Pipeline result:", result);
+      const result = await runCreatorPipeline({});
+      console.log("Creator pipeline result:", result);
 
       if (result && result.success) {
-        alert(`Pipeline completed! Found ${result.total} leads (${result.creators} creators, ${result.users} users)`);
+        alert(`Creator pipeline completed! Found ${result.creators} new creators`);
         window.location.reload();
       } else {
-        alert("Pipeline failed - check console for details");
+        alert("Creator pipeline failed - check console for details");
       }
     } catch (error) {
-      console.error("Pipeline error:", error);
-      alert("Failed to run pipeline: " + String(error));
+      console.error("Creator pipeline error:", error);
+      alert("Failed to run creator pipeline: " + String(error));
     } finally {
-      setIsRunning(false);
+      setIsRunningCreators(false);
+    }
+  };
+
+  const handleRunUserPipeline = async () => {
+    setIsRunningUsers(true);
+    try {
+      const result = await runUserPipeline({});
+      console.log("User pipeline result:", result);
+
+      if (result && result.success) {
+        alert(`User pipeline completed! Found ${result.users} new users`);
+        window.location.reload();
+      } else {
+        alert("User pipeline failed - check console for details");
+      }
+    } catch (error) {
+      console.error("User pipeline error:", error);
+      alert("Failed to run user pipeline: " + String(error));
+    } finally {
+      setIsRunningUsers(false);
     }
   };
 
   if (todayData === undefined) {
     return (
       <>
-        <Header onRunPipeline={handleRunPipeline} isRunning={isRunning} />
+        <Header
+          onRunCreatorPipeline={handleRunCreatorPipeline}
+          onRunUserPipeline={handleRunUserPipeline}
+          isRunningCreators={isRunningCreators}
+          isRunningUsers={isRunningUsers}
+        />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-muted-foreground" />
@@ -52,7 +79,12 @@ export default function HomePage() {
 
   return (
     <>
-      <Header onRunPipeline={handleRunPipeline} isRunning={isRunning} />
+      <Header
+        onRunCreatorPipeline={handleRunCreatorPipeline}
+        onRunUserPipeline={handleRunUserPipeline}
+        isRunningCreators={isRunningCreators}
+        isRunningUsers={isRunningUsers}
+      />
 
       <main className="container mx-auto px-4 py-8 max-w-7xl">
         {collab.length === 0 && users.length === 0 ? (

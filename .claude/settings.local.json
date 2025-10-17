@@ -34,7 +34,12 @@
       "Bash(timeout 10 npx convex dev --once)",
       "Bash(timeout 15 npx convex dev --once)",
       "Bash(git remote remove:*)",
-      "Read(//c/Users/arshadhakim/OneDrive/Desktop/**)"
+      "Read(//c/Users/arshadhakim/OneDrive/Desktop/**)",
+      "Bash(npm run build)",
+      "Bash(timeout 10 npx convex logs --prod --history 30)",
+      "Read(//c/Users/arshadhakim/**)",
+      "Bash(go version:*)",
+      "Bash(winget install:*)"
     ],
     "deny": [],
     "ask": []

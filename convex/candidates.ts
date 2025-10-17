@@ -159,18 +159,26 @@ export const getDMCountForProfile = query({
 });
 
 export const clearQueued = mutation({
-  args: {},
-  handler: async (ctx) => {
-    const queued = await ctx.db
+  args: {
+    bucket: v.optional(v.union(v.literal("user"), v.literal("collab"))),
+  },
+  handler: async (ctx, args) => {
+    let query = ctx.db
       .query("candidates")
-      .filter((q) => q.eq(q.field("status"), "queued"))
-      .collect();
+      .filter((q) => q.eq(q.field("status"), "queued"));
 
-    for (const candidate of queued) {
+    const queued = await query.collect();
+
+    // Filter by bucket if specified
+    const toDelete = args.bucket
+      ? queued.filter(c => c.bucket === args.bucket)
+      : queued;
+
+    for (const candidate of toDelete) {
       await ctx.db.delete(candidate._id);
     }
 
-    return { deleted: queued.length };
+    return { deleted: toDelete.length };
   },
 });
 

@@ -6,11 +6,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface HeaderProps {
-  onRunPipeline: () => void;
-  isRunning: boolean;
+  onRunCreatorPipeline: () => void;
+  onRunUserPipeline: () => void;
+  isRunningCreators: boolean;
+  isRunningUsers: boolean;
 }
 
-export function Header({ onRunPipeline, isRunning }: HeaderProps) {
+export function Header({ onRunCreatorPipeline, onRunUserPipeline, isRunningCreators, isRunningUsers }: HeaderProps) {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
@@ -58,8 +60,8 @@ export function Header({ onRunPipeline, isRunning }: HeaderProps) {
             )}
           </Button>
 
-          <Button onClick={onRunPipeline} disabled={isRunning}>
-            {isRunning ? (
+          <Button onClick={onRunCreatorPipeline} disabled={isRunningCreators} size="sm">
+            {isRunningCreators ? (
               <>
                 <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
                 Running...
@@ -67,7 +69,21 @@ export function Header({ onRunPipeline, isRunning }: HeaderProps) {
             ) : (
               <>
                 <Play className="w-4 h-4 mr-2" />
-                Run Pipeline
+                Run Creators
+              </>
+            )}
+          </Button>
+
+          <Button onClick={onRunUserPipeline} disabled={isRunningUsers} size="sm">
+            {isRunningUsers ? (
+              <>
+                <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                Running...
+              </>
+            ) : (
+              <>
+                <Play className="w-4 h-4 mr-2" />
+                Run Users
               </>
             )}
           </Button>
